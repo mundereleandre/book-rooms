@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Room Request" max_length="40" name="x_87580_book_rooms_room_request" type="collection">
+        <element label="Attendees" mandatory="true" max_length="40" name="attendees" type="integer"/>
+        <element attributes="ref_auto_completer=AJAXTableCompleter,ref_ac_columns=location;capacity,ref_ac_columns_search=true" label="Conference Room" mandatory="true" max_length="32" name="conference_room" reference="x_87580_book_rooms_conference_rooms" type="reference"/>
+        <element label="Duration" max_length="40" name="duration" type="glide_duration"/>
+        <element label="End Date" max_length="40" name="end_date" type="glide_date_time"/>
+        <element default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" default="javascript:gs.getUserID()" dynamic_default_value="2fd8e97bef3221002841f7f775c0fbc1" label="Requester" max_length="32" name="requester" reference="imp_user" type="reference" use_dynamic_default="true"/>
+        <element label="Start Date" max_length="40" name="start_date" type="glide_date_time"/>
+        <index name="index">
+            <element name="requester"/>
+        </index>
+        <index name="index2">
+            <element name="conference_room"/>
+        </index>
+    </element>
+</database>
